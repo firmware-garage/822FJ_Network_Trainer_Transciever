@@ -1,0 +1,37 @@
+#######################################
+# Syntax Coloring Map For J1850-Arduino-Transceiver-Library
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+J1850VPW	                    KEYWORD1
+
+J1850_ERRORS                    KEYWORD1
+J1850_OK                        LITERAL1
+J1850_ERR_BUS_IS_BUSY           LITERAL1
+J1850_ERR_BUS_ERROR             LITERAL1
+J1850_ERR_RECV_NOT_CONFIGURATED LITERAL1
+J1850_ERR_PULSE_TOO_SHORT       LITERAL1
+J1850_ERR_PULSE_OUTSIDE_FRAME   LITERAL1
+J1850_ERR_ARBITRATION_LOST      LITERAL1
+J1850_ERR_PULSE_TOO_LONG        LITERAL1
+
+J1850_Operations                KEYWORD1
+J1850_Write                     LITERAL1
+J1850_Read                      LITERAL1
+
+onErrorHandler                  KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setActiveLevel	        KEYWORD2
+init	                KEYWORD2
+tryGetReceivedFrame	    KEYWORD2
+send	                KEYWORD2
+onError                 KEYWORD2
+
+
