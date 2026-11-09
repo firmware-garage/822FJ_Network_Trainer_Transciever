@@ -97,8 +97,10 @@ static_assert(VPW_IDLE_WAIT_MS <= 32, "library overflows int16 above 32 ms");
 // The vendored send() does buff[nbytes] = crc(buff, nbytes) on every call.
 constexpr bool LIBRARY_APPENDS_CRC = true;
 
-// Library default: ACTIVE = LOW on both RX and TX. Your sniffer confirms the
-// RX side (pin LOW = bus active). The library has one level for both pins.
+// Library default: ACTIVE = LOW on both RX and TX. Your validated web-injector
+// firmware never calls setActiveLevel(), so it runs this same default on your
+// transceiver, and your sniffer confirms the RX side (pin LOW = bus active).
+// The library has one level for both pins.
 constexpr uint8_t VPW_TX_PASSIVE_LEVEL = 1;
 
 static const uint8_t HEARTBEAT_PAYLOAD[] = {0xE8, 0xFF, 0x10, 0x03};          // wire: ...B3

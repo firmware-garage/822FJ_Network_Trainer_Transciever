@@ -18,6 +18,18 @@
 #include "pins.h"
 #include "storage.h"
 
+// [cluster_trainer_s3 patch 1] Same change as Greg's validated
+// firmware-garage/J1850VPW_Transceiver: the constant lives here behind
+// #ifndef with a default of 18 us (upstream hard-codes 10 in j1850vpw.cpp).
+// 18 us is the value that firmware runs on his real transceiver. It can
+// still be overridden from build_flags (-DPROPOGATION_DELAY=nn).
+#ifndef PROPOGATION_DELAY
+#define PROPOGATION_DELAY (18)
+#endif
+#if (PROPOGATION_DELAY) >= 50
+#error "PROPOGATION_DELAY must stay well under the 64 us short symbol, or arbitration is never checked"
+#endif
+
 enum J1850_ERRORS {
     J1850_OK = 0x00,
     J1850_ERR_BUS_IS_BUSY = 0x81,

@@ -35,16 +35,9 @@
 #define RX_LONG_MAX (163) // maximum long pulse time
 
 #define RX_ARBITRATION_TOL (10) // Tolerance for shorter passive pulses from other modules during arbitration
-// [cluster_trainer_s3 patch 1] Overridable from build_flags (-DPROPOGATION_DELAY=nn).
-// Upstream hard-codes 10 us. A transceiver whose RX output lags the bus release
-// by more than this reads our own trailing ACTIVE level at the first check of a
-// passive symbol and send() returns J1850_ERR_ARBITRATION_LOST on every frame.
-#ifndef PROPOGATION_DELAY
-#define PROPOGATION_DELAY  (10)  //Propogation delay from driving output Passive to checking input follows 
-#endif
-#if (PROPOGATION_DELAY) >= 50
-#error "PROPOGATION_DELAY must stay well under the 64 us short symbol, or arbitration is never checked"
-#endif
+// [cluster_trainer_s3 patch 1] PROPOGATION_DELAY moved to j1850vpw.h (default 18 us,
+// as in Greg's validated firmware). Upstream line, kept for reference:
+// #define PROPOGATION_DELAY  (10)  //Propogation delay from driving output Passive to checking input follows 
 
 
 #define RX_EOD_MAX (239) // maximum end of data time
