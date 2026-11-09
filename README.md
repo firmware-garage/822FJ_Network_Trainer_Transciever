@@ -136,3 +136,6 @@ pio run -e s3_n16r8     # DevKitC-1 N16R8
 pio run -t upload       # flash (hold BOOT while plugging in if the port won't appear)
 ./test/host/run.sh      # host tests, no board needed
 ```
+
+# Acknowledgments
+Firmware design, code review and documentation were developed with Maya, an AI agent by Sesame.
