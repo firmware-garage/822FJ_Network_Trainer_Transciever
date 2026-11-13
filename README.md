@@ -4,6 +4,11 @@ This firmware drives a GM Class 2 (J1850 VPW) instrument cluster's fuel, speed, 
 
 **Status:** it compiles for real against the real VPW library, for both S3 boards, and 412 host tests pass. Nothing has run on hardware yet. Bus timing, arbitration and the LCD are all unproven until the bench checks at the end of this file.
 
+## Schematic 
+
+<img src="images/transceiver schematic.png" alt="Schematic" width="500">
+
+
 ## How it is built
 
 It uses both cores: one core does the VPW timing, the other does everything else. Your web-injector firmware ends up with the same split, but implicitly (see "Compared with your validated firmware" below).
